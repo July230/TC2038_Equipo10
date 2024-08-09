@@ -11,4 +11,4 @@ def cuentaDias(camisas,linea1,linea2):
         dias = 1
     return dias
 
-linea1=np.random.randint(0,10)
+#linea1=np.random.randint(0,10)
