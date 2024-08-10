@@ -1,5 +1,7 @@
 """
 Este programa calcula los primeros 15 numeros de una sumatoria especifica
+Maarten van 't Hoff A01764070, Ian Julian Estrada Castro A01352823
+Fecha: 09/08/2024
 """
 
 # Esto es una opcion iterative en cual se usa al variable i para sumar los fracciones

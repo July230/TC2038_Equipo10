@@ -3,6 +3,8 @@ Resulta que ha llegada una nueva máquina embotelladora de refrescos, el contene
 tiene forma cilindrica. Se sabe que cada envase de refresco debe contener M mililitros. Se desea saber
 cuántos refrescos se puede llenar la máquina de un sola vez, sin recargar el contenedor. Solo se tiene los
 datos del radio de la base y la altura medidos en metros.
+Maarten van 't Hoff A01764070, Ian Julian Estrada Castro A01352823
+Fecha: 09/08/2024
 """
 import math
 # Este función calcula la cantidad de envases enteros que puede llenar la máquina en ún recargo

@@ -1,5 +1,7 @@
 """
 Se desea calcular el factorial de un numero dado por el usuario
+Maarten van 't Hoff A01764070, Ian Julian Estrada Castro A01352823
+Fecha: 09/08/2024
 """
 
 def factorial(n):

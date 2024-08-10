@@ -1,6 +1,8 @@
 """
 Este programa muestra los números, la suma y promedio de la serie
 3, 6, 9, 12, ... 99
+Maarten van 't Hoff A01764070, Ian Julian Estrada Castro A01352823
+Fecha: 09/08/2024
 """
 
 # numeros(), solución iterativa que utiliza un ciclo que inicia en 3 y se suma de 3 en 3 hasta llegar a 99
