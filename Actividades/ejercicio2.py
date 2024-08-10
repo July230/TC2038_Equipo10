@@ -4,11 +4,11 @@ tiene forma cilindrica. Se sabe que cada envase de refresco debe contener M mili
 cuántos refrescos se puede llenar la máquina de un sola vez, sin recargar el contenedor. Solo se tiene los
 datos del radio de la base y la altura medidos en metros.
 """
-
+import math
 # Este función calcula la cantidad de envases enteros que puede llenar la máquina en ún recargo
 def llenaEnvase(radius,height,mils):
-    volMaquina = pow(radius,2)*height
-    numBottles = volMaquina // (mils / 10e6)
+    volMaquina = pow(radius,2)*height*math.pi
+    numBottles = volMaquina // (mils / 1e6)
     return numBottles
 
 RAD = int(input("Cual radio tiene el base?\n"))
