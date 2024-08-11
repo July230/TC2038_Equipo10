@@ -13,9 +13,9 @@ def llenaEnvase(radius,height,mils):
     numBottles = volMaquina // (mils / 1e6)
     return numBottles
 
-RAD = int(input("Cual radio tiene el base?\n"))
-HEIGHT = int(input("Cual altura tiene el contenedor?\n"))
-MIL = int(input("Cual volumen en mililitros tiene el envase?\n"))
+RAD = float(input("Cual radio tiene el base?\n"))
+HEIGHT = float(input("Cual altura tiene el contenedor?\n"))
+MIL = float(input("Cual volumen en mililitros tiene el envase?\n"))
 
 numBottles = llenaEnvase(RAD,HEIGHT,MIL)
 
