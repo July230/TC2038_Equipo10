@@ -20,3 +20,4 @@ def fracSquareSum(n):
 N = 15
 sum = fracSquareSum(N)
 print("Suma total:", sum)
+
