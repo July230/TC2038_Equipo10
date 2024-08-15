@@ -1,8 +1,12 @@
 import numpy as np
 size = 10
-arr = [0]*size
+arr = [0]*pow(size,2)
+arr = np.reshape(arr,(size,size))
 for i in range(size):
-    arr[i] = np.random.randint(-100,100)
+    for j in range(size):
+        arr[i,j] = np.random.randint(1,200)
+min = [0]*size
+max = [0]*size
 
 def max_min(arr):
     l,r = 0, size-1
@@ -11,7 +15,7 @@ def max_min(arr):
 def max_min_b(arr,l,r):
     n = r-l+1
     if n <= 2:
-        print("Left", arr[l], "Right", arr[r])
+        #print("Left", arr[l], "Right", arr[r])
         if arr[l] <= arr[r]:
             return (arr[l],arr[r])
         else:
@@ -21,9 +25,12 @@ def max_min_b(arr,l,r):
     rMin, rMax = max_min_b(arr,mid+1,r)
     min = lMin if lMin < rMin else rMin
     max = rMax if rMax > lMax else lMax
-    print("Min", min, "Max", max)
+    #print("Min", min, "Max", max)
     return (min,max)
 
-print("array:", arr)
-min, max = max_min(arr)
-print("Min", min, "\nMax", max)
+print("Array:\n", arr)
+for i in range(size):
+    min[i], max[i] = max_min(arr[i])
+minimum, notMax = max_min(min)
+notMin, maximum = max_min(max)
+print("Min", minimum, "\nMax", maximum)
