@@ -7,12 +7,11 @@ Idea de https://seanaujong.medium.com/divide-and-conquer-max-min-problem-42acbce
 """
 
 import numpy as np
-size = int(input("Tamaño de matriz"))
-arr = [0]*pow(size,2)
-arr = np.reshape(arr,(size,size))
+size = int(input("Tamaño de matriz\n"))
+arr = np.zeros((size,size), dtype = int)
 for i in range(size):
     for j in range(size):
-        arr[i,j] = np.random.randint(1,size^2)
+        arr[i,j] = np.random.randint(1,pow(size,2))
 min = [0]*size
 max = [0]*size
 
