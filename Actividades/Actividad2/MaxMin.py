@@ -1,10 +1,18 @@
+""" 
+Este programa calcula el maximo y minimo de una matrix o 2D array
+Autores: Maarten van 't Hoff A01764070 y Ian Julian Estrada Castro A01352823
+Fecha: 15/08/2024
+
+Idea de https://seanaujong.medium.com/divide-and-conquer-max-min-problem-42acbce7ddde
+"""
+
 import numpy as np
-size = 10
+size = int(input("Tamaño de matriz"))
 arr = [0]*pow(size,2)
 arr = np.reshape(arr,(size,size))
 for i in range(size):
     for j in range(size):
-        arr[i,j] = np.random.randint(1,200)
+        arr[i,j] = np.random.randint(1,size^2)
 min = [0]*size
 max = [0]*size
 
@@ -28,9 +36,9 @@ def max_min_b(arr,l,r):
     #print("Min", min, "Max", max)
     return (min,max)
 
-print("Array:\n", arr)
+print("\nArray:\n", arr)
 for i in range(size):
     min[i], max[i] = max_min(arr[i])
 minimum, notMax = max_min(min)
 notMin, maximum = max_min(max)
-print("Min", minimum, "\nMax", maximum)
+print("Min", minimum, "\nMax", maximum, "\n")
