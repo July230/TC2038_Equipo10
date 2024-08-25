@@ -2,12 +2,12 @@
 #include <iostream>
 using namespace std;
 
-void merge(vector<int>& arr, int left, int mid, int right){
+void merge(vector<double>& arr, int left, int mid, int right){
     int mid1 = mid - left + 1;
     int mid2 = right - mid;
 
     // Arreglos temporales
-    vector<int> tempLeft(mid1), tempRight(mid2);
+    vector<double> tempLeft(mid1), tempRight(mid2);
 
     for (int i = 0; i < mid1; i++){
         tempLeft[i] = arr[left + i];
@@ -48,7 +48,7 @@ void merge(vector<int>& arr, int left, int mid, int right){
     }
 }
 
-void sort(vector<int>& arr, int left, int right){
+void sort(vector<double>& arr, int left, int right){
     if (left >= right){
         return;
     }
@@ -60,7 +60,7 @@ void sort(vector<int>& arr, int left, int right){
 }
 
 int main(){
-    vector<int> arr = {83, 60, 1, 25, 67, 47, 11, 44, 47};
+    vector<double> arr = {83.0, 60.0, 1.0, 25.0, 67.0, 47.0, 11.0, 44.0, 47.0};
     int n = arr.size();
 
     sort(arr, 0, n-1);

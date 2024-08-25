@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/ianjulianestradacastro/TC2038_Algoritmos/TC2038_Equipo10/Actividades/Actividad3",
+      "program": "/Users/ianjulianestradacastro/TC2038_Algoritmos/TC2038_Equipo10/Actividades/Actividad3/build/Debug/outDebug"
+    }
+  ]
+}
