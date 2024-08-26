@@ -54,6 +54,7 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
+<<<<<<< HEAD
     "__hash_table": "cpp",
     "__split_buffer": "cpp",
     "array": "cpp",
@@ -65,3 +66,9 @@
     "vector": "cpp"
   }
 }
+=======
+    "iostream": "cpp",
+    "vector": "cpp"
+  }
+}
+>>>>>>> a5a5f84b20e87e195c9399c9d59407d6b1d34fef

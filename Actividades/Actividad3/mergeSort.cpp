@@ -6,16 +6,17 @@ Fecha: 25/08/2024
 Idea de https://www.geeksforgeeks.org/python-program-for-merge-sort/
 */
 
+
 #include <vector>
 #include <iostream>
 using namespace std;
 
-void merge(vector<double>& arr, int left, int mid, int right){
+void merge(vector<int>& arr, int left, int mid, int right){
     int mid1 = mid - left + 1;
     int mid2 = right - mid;
 
     // Arreglos temporales
-    vector<double> tempLeft(mid1), tempRight(mid2);
+    vector<int> tempLeft(mid1), tempRight(mid2);
 
     for (int i = 0; i < mid1; i++){
         tempLeft[i] = arr[left + i];
@@ -56,7 +57,7 @@ void merge(vector<double>& arr, int left, int mid, int right){
     }
 }
 
-void sort(vector<double>& arr, int left, int right){
+void sort(vector<int>& arr, int left, int right){
     if (left >= right){
         return;
     }
@@ -68,24 +69,48 @@ void sort(vector<double>& arr, int left, int right){
 }
 
 int main(){
-    vector<double> arr = {83.0, 60.0, 1.0, 25.0, 67.0, 47.0, 11.0, 44.0, 47.0};
-    vector<double> arr1 = {5.0, 3.0, 7.0, 9.0, 6.0, 2.0, 8.0, 1.0, 10.0, 4.0};
-    vector<double> arr2 = {35.0, 45.0, 67.0, 33.0, 29.0, 56.0, 49.0, 97.0, 11.0, 51.0, 75.0, 81.0, 72.0, 90.0, 87.0, 100.0, 45.0, 20.0, 89.0};
-    vector<double> arr3 = {1.0, -2.0, 7.0, 10.0, -1.0, 5.0, -5.0, 6.0, 4.0, -7.0, 8.0, -9.0, -3.0, -10.0};
-    int n = arr.size();
-    int m = arr1.size();
-    int u = arr2.size();
-    int v = arr3.size();
+    // Caso normal
+    vector<int> arr1 = {83, 60, 1, 25, 67, 47, 11, 44, 47, 45};
+    int n = arr1.size();
 
-    cout << "Iniciando casos prueba" << endl;
+    sort(arr1, 0, n-1);
 
-    for (int i = 0; i < arr.size(); i++){
-        cout << arr[i] << " ";
+    cout << "Sorted array 1\n";
+    for (int i = 0; i < arr1.size(); i++){
+        cout << arr1[i] << " ";
     }
-    cout << endl;
-    sort(arr, 0, n-1);
-    for (int i = 0; i < arr.size(); i++){
-        cout << arr[i] << " ";
+
+    // Caso con numeros grandes (incluye int mas grande en C++)
+    vector<int> arr2 = {1919599943, 1233349748, 1957834318, 2147483647, 1691781089, 1029790136, 376656260, 1850878874, 1231883793, 423604860};
+
+    n = arr2.size();
+    sort(arr2, 0, n-1);
+
+    cout << "\nSorted array 2\n";
+    for (int i = 0; i < arr2.size(); i++){
+        cout << arr2[i] << " ";
+    }
+
+    // Caso con numero un numero negativo
+    vector<int> arr3 = {79, -50, 13, 62, 91, 20, 49, 17, 96, 14};
+
+    n = arr3.size();
+    sort(arr3, 0, n-1);
+
+    cout << "\nSorted array 3\n";
+    for (int i = 0; i < arr3.size(); i++){
+        cout << arr3[i] << " ";
+    }
+
+    // Caso con un zero
+    vector<int> arr4 = {-91, -46, -5, -45, 0, 91, 20, 75, 23, 33};
+
+    n = arr4.size();
+    sort(arr4, 0, n-1);
+
+    cout << "\nSorted array 4\n";
+    for (int i = 0; i < arr4.size(); i++){
+        cout << arr4[i] << " ";
     }
 
     cout << endl;
@@ -95,7 +120,7 @@ int main(){
         cout << arr1[i] << " ";
     }
     cout << endl;
-    sort(arr1, 0, m-1);
+    sort(arr1, 0, n-1);
     for (int i = 0; i < arr1.size(); i++){
         cout << arr1[i] << " ";
     }
@@ -107,7 +132,7 @@ int main(){
         cout << arr2[i] << " ";
     }
     cout << endl;
-    sort(arr2, 0, u-1);
+    sort(arr2, 0, n-1);
     for (int i = 0; i < arr2.size(); i++){
         cout << arr2[i] << " ";
     }
@@ -119,7 +144,7 @@ int main(){
         cout << arr3[i] << " ";
     }
     cout << endl;
-    sort(arr3, 0, v-1);
+    sort(arr3, 0, n-1);
     for (int i = 0; i < arr3.size(); i++){
         cout << arr3[i] << " ";
     }
