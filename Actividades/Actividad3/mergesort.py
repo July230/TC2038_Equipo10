@@ -58,14 +58,51 @@ def mergeSort(array, left, right):
         merge(array, left, medium, right)
 
 
-array = [3, 7, 5, 8, 6, 9, 1, 10, 2, 4]
-size = len(array)
+array1 = [83, 60, 1, 25, 67, 47, 11, 44, 47, 45]
+size = len(array1)
 
+print("Array is")
 for i in range(size):
-    print("%d" % array[i],end=" ")
+    print("%d" % array1[i],end=" ")
 
-
-mergeSort(array, 0, size - 1)
+mergeSort(array1, 0, size - 1)
 print("\n\nSorted array is")
 for i in range(size):
-    print("%d" % array[i],end=" ")
+    print("%d" % array1[i],end=" ")
+
+array2 = [1919599943, 1233349748, 1957834318, 2147483647, 1691781089, 1029790136, 376656260, 1850878874, 1231883793, 423604860]
+size = len(array2)
+
+print("\n\nArray is")
+for i in range(size):
+    print("%d" % array2[i],end=" ")
+
+mergeSort(array2, 0, size - 1)
+print("\n\nSorted array is")
+for i in range(size):
+    print("%d" % array2[i],end=" ")
+    
+
+array3 = [79, -50, 13, 62, 91, 20, 49, 17, 96, 14]
+size = len(array3)
+
+print("\n\nArray is")
+for i in range(size):
+    print("%d" % array3[i],end=" ")
+
+mergeSort(array3, 0, size - 1)
+print("\n\nSorted array is")
+for i in range(size):
+    print("%d" % array3[i],end=" ")
+
+array4 = [-91, -46, -5, -45, 0, 91, 20, 75, 23, 33]
+size = len(array4)
+
+print("\n\nArray is")
+for i in range(size):
+    print("%d" % array4[i],end=" ")
+
+mergeSort(array4, 0, size - 1)
+print("\n\nSorted array is")
+for i in range(size):
+    print("%d" % array4[i],end=" ")
