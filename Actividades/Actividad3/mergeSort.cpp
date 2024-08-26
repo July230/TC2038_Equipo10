@@ -1,3 +1,10 @@
+""" 
+Este programa aplica la tecnica divide y venceras a traves del algoritmo de ordenamiento MergeSort de mayor a menor
+Autores: Maarten van 't Hoff A01764070 y Ian Julian Estrada Castro A01352823
+Fecha: 25/08/2024
+
+Idea de https://www.geeksforgeeks.org/python-program-for-merge-sort/
+"""
 #include <vector>
 #include <iostream>
 using namespace std;
