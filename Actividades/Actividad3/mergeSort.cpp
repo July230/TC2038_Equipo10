@@ -6,6 +6,7 @@ Fecha: 25/08/2024
 Idea de https://www.geeksforgeeks.org/python-program-for-merge-sort/
 */
 
+
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -110,5 +111,41 @@ int main(){
     cout << "\nSorted array 4\n";
     for (int i = 0; i < arr4.size(); i++){
         cout << arr4[i] << " ";
+    }
+
+    cout << endl;
+    cout << endl;
+
+    for (int i = 0; i < arr1.size(); i++){
+        cout << arr1[i] << " ";
+    }
+    cout << endl;
+    sort(arr1, 0, n-1);
+    for (int i = 0; i < arr1.size(); i++){
+        cout << arr1[i] << " ";
+    }
+
+    cout << endl;
+    cout << endl;
+
+    for (int i = 0; i < arr2.size(); i++){
+        cout << arr2[i] << " ";
+    }
+    cout << endl;
+    sort(arr2, 0, n-1);
+    for (int i = 0; i < arr2.size(); i++){
+        cout << arr2[i] << " ";
+    }
+
+    cout << endl;
+    cout << endl;
+
+    for (int i = 0; i < arr3.size(); i++){
+        cout << arr3[i] << " ";
+    }
+    cout << endl;
+    sort(arr3, 0, n-1);
+    for (int i = 0; i < arr3.size(); i++){
+        cout << arr3[i] << " ";
     }
 }
