@@ -21,13 +21,98 @@ using namespace std;
 
 void fillVector(vector<int>& array){
     for(int i = 0; i < array.size(); i++){
-        array[i] = (rand() % 100) + 1;
+        array[i] = (rand() % 500) + 1;
     }
 }
 
+// La funcion merge hace la mezcla en los subarreglos
+void merge(vector<int>& arr, int left, int mid, int right){
+    int mid1 = mid - left + 1;
+    int mid2 = right - mid;
+
+    // Arreglos temporales
+    vector<int> tempLeft(mid1), tempRight(mid2);
+
+    for (int i = 0; i < mid1; i++){
+        tempLeft[i] = arr[left + i];
+    }
+
+    for (int j = 0; j < mid2; j++){
+        tempRight[j] = arr[mid + 1 +j];
+    }
+
+    int i = 0, j = 0;
+    int k = left;
+
+    // Mezclar los arreglos temporales
+    while (i < mid1 && j < mid2){
+        if (tempLeft[i] <= tempRight[j]){
+            arr[k] = tempLeft[i];
+            i++;
+        }
+        else{
+            arr[k] = tempRight[j];
+            j++;
+        }
+        k++;
+    }
+
+    // Copiar los elementos restantes de tempLeft
+    while (i < mid1){
+        arr[k] = tempLeft[i];
+        i++;
+        k++;
+    }
+
+    // Copiar los elementos restantes de tempRight
+    while (j < mid2){
+        arr[k] = tempRight[j];
+        j++;
+        k++;
+    }
+}
+
+// La funcion sort aplica el algoritmo MergeSort que consiste en dividir el arreglo
+// en arreglos mas pequenios para ordenarlos y finalmente mezclar todos los arreglos en uno
+// Complejidad temporal de O(nlog(n))
+void sort(vector<int>& arr, int left, int right){
+    if (left >= right){
+        return;
+    }
+    
+    int mid = left + (right - left) / 2;
+    sort(arr, left, mid);
+    sort(arr, mid + 1, right);
+    merge(arr, left, mid, right);
+}
+
+void changeCoins(vector<int>& monedas, int cantidad){
+    vector<int> result;
+
+    // Mientras la cantidad actual sea mayor a la denominacion actual, se resta
+    // la denominacion y se agrega al arreglo de resultados
+    for(int i = 0; i <= monedas.size() - 1; i++){
+        while(cantidad >= monedas[i]){
+            cantidad -= monedas[i];
+            result.push_back(monedas[i]);
+        }
+    }
+
+    if(cantidad != 0){
+        cout << "No se puede hacer un cambio exacto con las monedas disponibles" << endl;
+    } else {
+        cout << "Cambio: ";
+        for (int moneda : result){
+            cout << moneda << " ";
+        }
+        cout << endl;
+    }
+
+}
 
 int main(){
     int size = 10;
+    int cantidad;
     vector<int> array(size);
 
     for(int i = 0; i < size; i++){
@@ -41,6 +126,18 @@ int main(){
         cout << array[i] << " ";
     }
     cout << endl;
+    sort(array, 0, size-1);
+    cout << "Vector ordenado" << endl;
+    for(int i = 0; i < size; i++){
+        cout << array[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Ingrese la cantidad a cambiar: ";
+    cin >> cantidad;
+
+    // Obtener el cambio
+    changeCoins(array, cantidad);
 
     return 0;
 }
