@@ -87,14 +87,15 @@ void sort(vector<int>& arr, int left, int right){
 }
 
 void changeCoins(vector<int>& monedas, int cantidad){
-    vector<int> result;
+    vector<int> result(monedas.size(), 0);
 
     // Mientras la cantidad actual sea mayor a la denominacion actual, se resta
-    // la denominacion y se agrega al arreglo de resultados
-    for(int i = 0; i <= monedas.size() - 1; i++){
+    // la denominacion y se incrementa el conteo en el arreglo de resultados
+    for(int i = monedas.size() - 1; i >= 0; i--){
         while(cantidad >= monedas[i]){
             cantidad -= monedas[i];
-            result.push_back(monedas[i]);
+            result[i]++;
+            // result.push_back(monedas[i]);
         }
     }
 
@@ -102,12 +103,12 @@ void changeCoins(vector<int>& monedas, int cantidad){
         cout << "No se puede hacer un cambio exacto con las monedas disponibles" << endl;
     } else {
         cout << "Cambio: ";
-        for (int moneda : result){
-            cout << moneda << " ";
+        for(int i = monedas.size() - 1; i >= 0; i--){
+           if(result[i] > 0){
+            cout << monedas[i] << ": " << result[i] << "monedas" << endl;
+           }
         }
-        cout << endl;
     }
-
 }
 
 int main(){
