@@ -15,13 +15,14 @@ Fecha: 01/09/2024
 
 #include <iostream>
 #include <vector>
+#include <ctime>
 #include <stdlib.h>
 
 using namespace std;
 
 void fillVector(vector<int>& array){
     for(int i = 0; i < array.size(); i++){
-        array[i] = (rand() % 100) + 1;
+        array[i] = (rand() % 20) + 1;
     }
 }
 
@@ -107,33 +108,22 @@ vector<int> changeCoins(vector<int>& monedas, int cantidad){
 }
 
 int main(){
+    srand(time(0));
     int size = 10;
-    int cantidad;
     vector<int> array(size);
-    //vector<int> array = {1, 5, 10, 20};
-
     fillVector(array);
-    cout << endl;
+    sort(array, 0, array.size()-1);
+    int value = (rand() % (100/array[0])) * array[0];
+
+    cout << "Valor de cambio: " << value << endl;
 
     cout << "Vector con numeros aleatorios" << endl;
     for(int i = 0; i < array.size(); i++){
         cout << array[i] << " ";
     }
     cout << endl;
-    
-    sort(array, 0, array.size()-1);
-    cout << "Vector ordenado" << endl;
-    for(int i = 0; i < array.size(); i++){
-        cout << array[i] << " ";
-    }
-    cout << endl;
 
-    cout << "Ingrese la cantidad a cambiar: ";
-    cin >> cantidad;
-
-    // Obtener el cambio
-    vector<int> resultado = changeCoins(array, cantidad);
-    // Imprimir el resultado
+    vector<int> resultado = changeCoins(array, value);
     cout << "Cambio: ";
     for(int i = 0; i < resultado.size(); i++){
         cout << resultado[i] << " ";
