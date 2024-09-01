@@ -21,7 +21,7 @@ using namespace std;
 
 void fillVector(vector<int>& array){
     for(int i = 0; i < array.size(); i++){
-        array[i] = (rand() % 500) + 1;
+        array[i] = (rand() % 100) + 1;
     }
 }
 
@@ -86,50 +86,44 @@ void sort(vector<int>& arr, int left, int right){
     merge(arr, left, mid, right);
 }
 
-void changeCoins(vector<int>& monedas, int cantidad){
-    vector<int> result(monedas.size(), 0);
+vector<int> changeCoins(vector<int>& monedas, int cantidad){
+    vector<int> result(monedas.size(), 0); // Arreglo del mismo tamanio con todos los elementos en 0
+    int sumaS = 0;
 
     // Mientras la cantidad actual sea mayor a la denominacion actual, se resta
     // la denominacion y se incrementa el conteo en el arreglo de resultados
     for(int i = monedas.size() - 1; i >= 0; i--){
-        while(cantidad >= monedas[i]){
-            cantidad -= monedas[i];
+        while(sumaS + monedas[i] <= cantidad){
+            sumaS += monedas[i];
             result[i]++;
-            // result.push_back(monedas[i]);
         }
     }
 
-    if(cantidad != 0){
+    if(sumaS != cantidad){
         cout << "No se puede hacer un cambio exacto con las monedas disponibles" << endl;
-    } else {
-        cout << "Cambio: ";
-        for(int i = monedas.size() - 1; i >= 0; i--){
-           if(result[i] > 0){
-            cout << monedas[i] << ": " << result[i] << "monedas" << endl;
-           }
-        }
     }
+
+    return result;
 }
 
 int main(){
     int size = 10;
     int cantidad;
     vector<int> array(size);
+    //vector<int> array = {1, 5, 10, 20};
 
-    for(int i = 0; i < size; i++){
-        cout << array[i] << " ";
-    }
     fillVector(array);
     cout << endl;
 
     cout << "Vector con numeros aleatorios" << endl;
-    for(int i = 0; i < size; i++){
+    for(int i = 0; i < array.size(); i++){
         cout << array[i] << " ";
     }
     cout << endl;
-    sort(array, 0, size-1);
+    
+    sort(array, 0, array.size()-1);
     cout << "Vector ordenado" << endl;
-    for(int i = 0; i < size; i++){
+    for(int i = 0; i < array.size(); i++){
         cout << array[i] << " ";
     }
     cout << endl;
@@ -138,7 +132,13 @@ int main(){
     cin >> cantidad;
 
     // Obtener el cambio
-    changeCoins(array, cantidad);
+    vector<int> resultado = changeCoins(array, cantidad);
+    // Imprimir el resultado
+    cout << "Cambio: ";
+    for(int i = 0; i < resultado.size(); i++){
+        cout << resultado[i] << " ";
+    }
+    cout << endl;
 
     return 0;
 }
