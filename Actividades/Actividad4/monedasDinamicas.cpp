@@ -14,52 +14,38 @@ void fillVector(vector<int>& array){
 
 vector<int> monedaDinamica(vector<int>& array, int value){
     int val, currency;
-    vector< vector<int> > nums(array.size(), vector<int>(value + 1));
-    vector<int> cambio(array.size());
+    vector< vector<int> > nums(array.size(), vector<int>(value + 1, INT_MAX));
+    vector<int> cambio(array.size(),0);
 
     for (currency = 0; currency < array.size(); currency++){
         nums[currency][0] = 0;
+    }
+
+    for (currency = 0; currency < array.size(); currency++){
         for (val = 1; val <= value; val++){
-            if (currency == 0){
-                nums[currency][val] = nums[currency][val - 1];
-                if (val % array[currency] == 0){
-                    nums[currency][val] += 1;
-                }
-            }
-            else if (val < array[currency]){
+            if (currency > 0) {
                 nums[currency][val] = nums[currency - 1][val];
             }
-            else{
-                nums[currency][val] = min(nums[currency - 1][val], 1 + nums[currency][val - array[currency]]);
+            if (val >= array[currency] && nums[currency][val - array[currency]] != INT_MAX) {
+                nums[currency][val] = min(nums[currency][val], 1 + nums[currency][val - array[currency]]);
             }
         }
     }
 
-    // cout << "Init arr " << endl;
-    // for(int i = 0; i < array.size(); i++){
-    //     for(int j = 0; j <= value; j++){
-    //         cout << nums[i][j] << " ";
-    //     }
-    //     cout << endl;
-    // }
-    // cout << endl;
-
-    // cout << "minCoins " << nums[array.size() - 1][value] << endl;
-
     currency = array.size() - 1;
     val = value;
 
-    while (nums[currency][val] != 0){
-        if (nums[currency][val] == nums[currency-1][val]){
+    while (val > 0 && currency >= 0){
+        if (currency > 0 && nums[currency][val] == nums[currency-1][val]){
             currency -= 1;
         }
-        else if (nums[currency][val] == 1 + nums[currency][val - array[currency]]){
+        else{
             cambio[currency] += 1;
             val -= array[currency];
         }
     }
 
-    cout << "Change arr " << endl;
+    cout << "Cambio PD:" << endl;
     for(int i = 0; i < array.size(); i++){
         cout << cambio[i] << " ";
     }
@@ -76,11 +62,10 @@ int main(){
     fillVector(array);
     sort(array.begin(), array.end());
 
-    int value = (rand() % (100/array[0])) * array[0];
-
-    cout << "Valor de cambio: " << value << endl;
+    int value;
+    cout << "Valor de cambio: "; cin >> value;
     
-    cout << "Vector con numeros aleatorios" << endl;
+    cout << "Vector con numeros aleatorios:" << endl;
     for(int i = 0; i < size; i++){
         cout << array[i] << " ";
     }
