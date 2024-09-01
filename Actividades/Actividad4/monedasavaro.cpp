@@ -87,6 +87,8 @@ void sort(vector<int>& arr, int left, int right){
     merge(arr, left, mid, right);
 }
 
+// changeCoins itera sobre las denominaciones de monedas hasta que se alcance el valor de cambio
+// Complejidad O(n), donde en el peor de los casos, itera en todas las denominaciones
 vector<int> changeCoins(vector<int>& monedas, int cantidad){
     vector<int> result(monedas.size(), 0); // Arreglo del mismo tamanio con todos los elementos en 0
     int sumaS = 0;
