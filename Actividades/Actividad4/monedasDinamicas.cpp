@@ -45,15 +45,28 @@ vector<int> monedaDinamica(vector<int>& array, int value){
         }
     }
 
-    cout << "Cambio PD:" << endl;
-    for(int i = 0; i < array.size(); i++){
-        cout << cambio[i] << " ";
-    }
-    cout << endl;
-
     return cambio;
 }
 
+vector<int> monedaAvaro(vector<int>& monedas, int cantidad){
+    vector<int> result(monedas.size(), 0); // Arreglo del mismo tamanio con todos los elementos en 0
+    int sumaS = 0;
+
+    // Mientras la cantidad actual sea mayor a la denominacion actual, se resta
+    // la denominacion y se incrementa el conteo en el arreglo de resultados
+    for(int i = monedas.size() - 1; i >= 0; i--){
+        while(sumaS + monedas[i] <= cantidad){
+            sumaS += monedas[i];
+            result[i]++;
+        }
+    }
+
+    if(sumaS != cantidad){
+        cout << "No se puede hacer un cambio exacto con las monedas disponibles" << endl;
+    }
+
+    return result;
+}
 
 int main(){
     srand(time(0));
@@ -71,7 +84,22 @@ int main(){
     }
     cout << endl;
 
-    monedaDinamica(array, value);
+    vector<int> cambio = monedaDinamica(array, value);
+
+    cout << "Cambio PD:" << endl;
+    for(int i = 0; i < array.size(); i++){
+        cout << cambio[i] << " ";
+    }
+    cout << endl;
+
+    cambio = monedaAvaro(array,value);
+
+    cout << "Cambio Avaro:" << endl;
+    for(int i = 0; i < array.size(); i++){
+        cout << cambio[i] << " ";
+    }
+    cout << endl;
+
 
     return 0;
 }
