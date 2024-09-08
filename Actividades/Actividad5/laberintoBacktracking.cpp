@@ -102,5 +102,64 @@ int main(){
         cout << "No hay solucion posible" << endl;
     }
 
+    int M1 = 6;
+    int N1 = 6;
+    vector<vector<int>> maze2 = {
+        {1, 1, 1, 1, 0, 1},
+        {1, 1, 0, 1, 1, 1},
+        {1, 0, 0, 1, 0, 1},
+        {1, 1, 0, 1, 0, 1},
+        {0, 1, 0, 1, 1, 1},
+        {1, 1, 1, 1, 0, 1},
+    };
+
+    vector<vector<int>> solution1 = maze(M1, N1, maze2);
+
+    if(!solution1.empty()){
+        cout << "Solucion 2" << endl;
+        printMatrix(solution1, M1, N1);
+    } else {
+        cout << "No hay solucion posible" << endl;
+    }
+
+    int M2 = 4;
+    int N2 = 4;
+    vector<vector<int>> maze3 = {
+        {1, 0, 0, 0},
+        {1, 1, 1, 0},
+        {0, 1, 1, 1},
+        {1, 0, 0, 1}
+    };
+
+    vector<vector<int>> solution2 = maze(M2, N2, maze3);
+
+    if(!solution2.empty()){
+        cout << "Solucion 3" << endl;
+        printMatrix(solution2, M2, N2);
+    } else {
+        cout << "No hay solucion posible" << endl;
+    }
+
+    int M3 = 7;
+    int N3 = 9;
+    vector<vector<int>> maze4 = {
+        {1, 1, 0, 1, 1, 1, 1, 1, 0},
+        {0, 1, 1, 1, 0, 0, 0, 1, 1},
+        {1, 1, 0, 1, 1, 1, 1, 1, 0},
+        {1, 0, 0, 0, 1, 1, 0, 1, 1},
+        {1, 1, 0, 1, 1, 0, 0, 0, 1},
+        {0, 1, 0, 1, 0, 1, 0, 0, 1},
+        {1, 1, 1, 1, 0, 1, 1, 0, 1},
+    };
+
+    vector<vector<int>> solution3 = maze(M3, N3, maze4);
+
+    if(!solution3.empty()){
+        cout << "Solucion 4" << endl;
+        printMatrix(solution3, M3, N3);
+    } else {
+        cout << "No hay solucion posible" << endl;
+    }
+
     return 0;
 }
