@@ -167,7 +167,7 @@ int main(){
         {1, 1, 1, 1, 0, 1, 1, 0, 1},
     };
 
-    cout << "Cuerto laberinto" << endl;
+    cout << "Cuarto laberinto" << endl;
     cout << M3 << endl;
     cout << N3 << endl;
     printMatrix(maze4, M3, N3);
