@@ -93,6 +93,9 @@ int main(){
         {1, 1, 1, 1}
     };
 
+    cout << "Primer laberinto" << endl;
+    printMatrix(maze1, M, N);
+
     vector<vector<int>> solution = maze(M, N, maze1);
 
     if(!solution.empty()){
@@ -113,6 +116,9 @@ int main(){
         {1, 1, 1, 1, 0, 1},
     };
 
+    cout << "Segundo laberinto" << endl;
+    printMatrix(maze2, M1, N1);
+
     vector<vector<int>> solution1 = maze(M1, N1, maze2);
 
     if(!solution1.empty()){
@@ -130,6 +136,9 @@ int main(){
         {0, 1, 1, 1},
         {1, 0, 0, 1}
     };
+
+    cout << "Tercer laberinto" << endl;
+    printMatrix(maze3, M2, N2);
 
     vector<vector<int>> solution2 = maze(M2, N2, maze3);
 
@@ -151,6 +160,9 @@ int main(){
         {0, 1, 0, 1, 0, 1, 0, 0, 1},
         {1, 1, 1, 1, 0, 1, 1, 0, 1},
     };
+
+    cout << "Cuerto laberinto" << endl;
+    printMatrix(maze4, M3, N3);
 
     vector<vector<int>> solution3 = maze(M3, N3, maze4);
 
