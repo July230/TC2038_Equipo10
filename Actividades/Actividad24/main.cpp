@@ -17,8 +17,94 @@ La longitud de la cadena de salida será de n/4.
 
 Muestra la tabla generada, el arreglo a, y la cadena de salida.
 
-Autores: Maarten van 't Hoff A01764070 y Ian Julian Estrada Castro A01352823
+Autores: Maarten van 't Hoff A01764070, Ian Julian Estrada Castro A01352823, Diego García A01710777
 Fecha: 25/09/2024
 */
 
 #include <iostream>
+#include <fstream>
+#include <stdlib.h>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<vector<char>> constructArr(string fileName, int length){
+    fstream newfile;
+    string str;
+    vector<char> tempArr;
+    vector<vector<char>> arr;
+
+    // Read the txt file into a unidimensional array of chars
+    newfile.open(fileName + ".txt",ios::in); // Open file object to read
+    if (newfile.is_open()){
+        while(getline(newfile, str)){
+            for (int i = 0; i < str.length(); i++){
+                tempArr.push_back(str[i]);
+            }
+            tempArr.push_back('\n');
+        }
+        newfile.close(); // Close file object
+    }
+
+    int numRows = (tempArr.size() + length - 1) / length;
+
+    for (int i = 0; i < numRows; i++){
+        vector<char> row;
+        for (int j = 0; j < length; j++){
+            if (i * length + j < tempArr.size()){
+                row.push_back(tempArr[i * length + j]);
+            }
+            else{
+                row.push_back('\0');
+            }
+        }
+        arr.push_back(row);
+    }
+
+    return arr;
+}
+
+int calcHash(){
+    
+}
+
+int main(){
+    int n;
+    string fileName;
+    vector<vector<char>> str;
+
+    cout << "Ingrese el nombre del archivo de texto (sin extension): "; getline(cin, fileName);
+    ifstream file(fileName + ".txt");
+    if (!file){
+        cerr << "Archivo de texto " << fileName << ".txt no existe" << endl;
+        return -1;
+    }
+    file.close();
+
+
+    cout << "Ingrese un multiplo 'n' de 4 entre 16 y 64: "; cin >> n;
+    if (n < 16 || n % 4 != 0){
+        cout << "Numero invalido" << endl;
+        return -1;
+    }
+
+    str = constructArr(fileName, n);
+
+    for (const auto& row : str){
+        for (const char& c : row){
+            if (c == '\n'){
+                cout << "-" << " ";
+            }
+            else if (c == '\0'){
+                cout << "[" << " ";
+            }
+            else{
+                cout << c << " ";
+            }
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
