@@ -17,7 +17,7 @@ for i in substrings:
 
 # Ordenar los sufijos lexicográficamente
 # key es el parametro de ordenación, lambda define funciones anónimas
-# x es cada elemento del arreglo, se empieza por el segundo elemento
+# x es cada elemento del arreglo, el parámetro es el segundo elemento de la tupla
 # La función sorted en python tiene complejidad de O(nlog(n))
 sortedSubstrings = sorted(substrings, key=lambda x: x[1])
 
