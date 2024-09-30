@@ -7,6 +7,8 @@ str = input("Ingrese un string: ")
 substrings = []
 sortedSubstrings =[]
 
+# El ciclo imprime agrega strings al arreglo substrings, reduciendo su longitud por cada indice
+# Complejidad O(n)
 for i in range(len(str)):
     substrings.append([i, str[i:]])
     if i == len(str) - 1:
