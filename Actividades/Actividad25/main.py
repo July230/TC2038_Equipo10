@@ -1,5 +1,7 @@
 # El programa recibe un string, calcula el arreglo de substrings y lo muestra ordenado alfabéticamente.
 
+# Autores Ian Julián Estrada Castro A01352823,  Maarten van 't Hoff A01764070 y Diego Antonio García Padilla A01710777
+
 str = input("Ingrese un string: ")
 
 substrings = []
