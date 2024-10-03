@@ -1,3 +1,6 @@
+#ifndef STRING_SEARCH
+#define STRING_SEARCH
+
 #include "header.h"
 
 /* Uso de Z-algorithm para busqueda de strings. Es un algoritmo
@@ -43,3 +46,5 @@ void stringSearch(std::string& concat, std::vector<int>& index, int patLength){
         }
     }
 }
+
+#endif

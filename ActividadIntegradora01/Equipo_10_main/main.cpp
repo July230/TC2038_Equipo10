@@ -1,4 +1,5 @@
 #include "header.h"
+#include "stringSearch.h"
 
 int main(){
     std::string pattern = "aaa";
