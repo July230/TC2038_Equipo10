@@ -1,5 +1,6 @@
 #include "header.h"
 #include "readFile.h"
+#include "palindromo.h"
 #include "longestCommonSubstring.h"
 
 int main(){
@@ -75,6 +76,15 @@ int main(){
 
     } else {
         std::cout << "No common substring found" << std::endl;
+    }
+
+    std::cout << "Mirror code in transmissions: " << std::endl;
+    for (int i = 0; i < transmissions.size(); i++){
+        pair<int, int> res = manacher(transmissions[i]);
+        std::cout << "Posiciones del palindromo mas largo: " << res.first << " " << res.second << std::endl;
+
+        std::cout << "Palindromo mas largo: " << transmissions[i].substr(res.first, res.second - res.first + 1) << std::endl;
+        std::cout << std::endl;
     }
 
     return 0;
