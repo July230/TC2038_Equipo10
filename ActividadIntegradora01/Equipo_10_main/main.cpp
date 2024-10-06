@@ -1,5 +1,6 @@
 #include "header.h"
 #include "readFile.h"
+#include "longestCommonSubstring.h"
 
 int main(){
     std::string mCodeFolder = "./mCode/";
@@ -20,21 +21,61 @@ int main(){
         transmissions.push_back(readFile(txtFolder, txt[i]));
     }
 
-    std::cout << "Transmissions:" << std::endl;
+    std::cout << "Transmissions:" << std::endl << std::endl;
+
     for (int i = 0; i < transmissions.size(); i++){
+
+        std::cout << "Transmission " << i+1 << ":" << std::endl;
+
         for (int j = 0; j < transmissions[i].length(); j++){
             std::cout << transmissions[i][j];
         }
+
         std::cout << "\n" << std::endl;
     }
 
-    std::cout << "Malicious Code:" << std::endl;
+    std::cout << "Malicious Code:" << std::endl << std::endl;
+
     for (int i = 0; i < patterns.size(); i++){
+
+        std::cout << "Malicious Code " << i+1 << ":" << std::endl;
+
         for (int j = 0; j < patterns[i].length(); j++){
             std::cout << patterns[i][j];
         }
-        std::cout << std::endl;
+
+        std::cout << "\n" << std::endl;
     }
-    
+
+
+    // Encontrar el substring más largo común entre las transmisiones
+
+    std::string lcs = longestCommonSubstring(transmissions[0], transmissions[1]);
+
+    if (lcs.length() > 0){
+        
+        std::cout << "Longest Common Substring: " << lcs << std::endl << std::endl;
+
+        // Encontrar las posiciones del substring más largo
+
+        std::vector<std::pair<int,int>> positions1 = longestCommonSubstringPositions(transmissions[0], transmissions[1]);
+        std::vector<std::pair<int,int>> positions2 = longestCommonSubstringPositions(transmissions[1], transmissions[0]);
+
+        std::cout << "T R A N S M I S S I O N 1" << std::endl << std::endl;
+
+        for (int i = 0; i < positions1.size(); i++){
+            std::cout << "(" << positions1[i].first << ", " << positions1[i].second << ")" << std::endl;
+        }
+
+        std::cout << "\nT R A N S M I S S I O N 2" << std::endl << std::endl;
+
+        for (int i = 0; i < positions2.size(); i++){
+            std::cout << "(" << positions2[i].first << ", " << positions2[i].second << ")" << std::endl;
+        }
+
+    } else {
+        std::cout << "No common substring found" << std::endl;
+    }
+
     return 0;
 }
