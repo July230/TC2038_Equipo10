@@ -52,10 +52,10 @@ pair<int, int> manacher(const string& s){
 
     // Convertir la posicion en la cadena original quitando caracteres agregador
     int start = (centerIndex - 1 - maxLen) / 2;
-    int end = start + maxLen - 1;
+    int end = start + maxLen;
 
     pair<int, int> resultado;
-    resultado.first = start; // Retornamos posiciones 1-based
+    resultado.first = start + 1; // Retornamos posiciones 1-based
     resultado.second = end;
 
     return resultado; 

@@ -81,9 +81,9 @@ int main(){
     std::cout << "Mirror code in transmissions: " << std::endl;
     for (int i = 0; i < transmissions.size(); i++){
         pair<int, int> res = manacher(transmissions[i]);
-        std::cout << "Posiciones del palindromo mas largo: " << res.first << " " << res.second << std::endl;
+        std::cout << "Longest mirror code in transmission \n" << transmissions[i] << ": " << res.first << " " << res.second << std::endl;
 
-        std::cout << "Palindromo mas largo: " << transmissions[i].substr(res.first, res.second - res.first + 1) << std::endl;
+        std::cout << "Longest mirror code: " << transmissions[i].substr(res.first - 1, res.second - res.first + 1) << std::endl;
         std::cout << std::endl;
     }
 
