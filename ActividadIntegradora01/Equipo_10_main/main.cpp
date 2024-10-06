@@ -1,5 +1,6 @@
 #include "header.h"
 #include "readFile.h"
+#include "palindromo.h"
 
 int main(){
     std::string mCodeFolder = "./mCode/";
@@ -33,6 +34,15 @@ int main(){
         for (int j = 0; j < patterns[i].length(); j++){
             std::cout << patterns[i][j];
         }
+        std::cout << std::endl;
+    }
+
+    std::cout << "Mirror code in transmissions: " << std::endl;
+    for (int i = 0; i < transmissions.size(); i++){
+        pair<int, int> res = manacher(transmissions[i]);
+        std::cout << "Posiciones del palindromo mas largo: " << res.first << " " << res.second << std::endl;
+
+        std::cout << "Palindromo mas largo: " << transmissions[i].substr(res.first, res.second - res.first + 1) << std::endl;
         std::cout << std::endl;
     }
     
