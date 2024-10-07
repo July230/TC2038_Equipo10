@@ -1,0 +1,9 @@
+ACTIVIDAD INTEGRADORA 1: DETECCIÓN DE CODIGO MALICIOSO
+
+Maarten Roelof van 't Hoff - A01764070
+- Archivos de codigo: stringSearch.h, readFile.h, main.cpp (manejo de archivos de texto)
+
+Ian Julian Estrada Castro - 
+
+
+Diego García - 
