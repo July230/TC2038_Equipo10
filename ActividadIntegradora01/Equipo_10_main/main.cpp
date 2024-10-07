@@ -49,20 +49,28 @@ int main(){
         std::cout << "\n" << std::endl;
     }
 
-    std::string concat = pattern + '\0' + text;
+    std::string concat;
     
     std::vector<int> index;
 
-    stringSearch(concat, index, pattern.length());
-
-    if (index.size() == 0){
-        std::cout << "(false) Cadena no encontrada en la transmission" << std::endl;
-    }
-    else{
-        for (int i = 0; i < index.size(); i++){
-            std::cout << "(true) Posicion inicial: " << index[i] <<
-            " Posicion final: " << index[i] + pattern.length() - 1 << std::endl;
+    for (int i = 0; i < transmissions.size(); i++){
+        std::cout << "T R A N S M I S S I O N " << i + 1 << std::endl;
+        for (int j = 0; j < patterns.size(); j++){
+            concat = patterns[j] + "\0" + transmissions[i];
+            index = {};
+            stringSearch(concat, index, patterns[j].length());
+            if (index.size() == 0){
+                std::cout << "(false) Cadena no encontrada en la transmission" << std::endl;
+            }
+            else{
+                for (int i = 0; i < index.size(); i++){
+                    std::cout << "(true) Posicion inicial: " << index[i] <<
+                    " Posicion final: " << index[i] + patterns[j].length() - 1 << std::endl;
+                }
+            }
+            std::cout << std::endl;
         }
+        std::cout << std::endl;
     }
 
     // Encontrar el substring más largo común entre las transmisiones
