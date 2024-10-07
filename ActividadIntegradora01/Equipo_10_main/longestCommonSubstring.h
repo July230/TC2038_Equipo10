@@ -54,21 +54,18 @@ std::vector<std::pair<int,int>> longestCommonSubstringPositions(std::string s1, 
 
     // Tamaño de la cadenas
     int n = s1.size();
-    int m = s2.size();
 
     // Crear vector de pares de enteros
     std::vector<std::pair<int,int>> positions;
 
-    // Recorrer las cadenas
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
+    // Recorrer la cadena s1
+    for (int i = 0; i <= n - l; i++) {
 
-            // Si la subcadena común más larga es igual a la subcadena de s1
-            if (lcs == s1.substr(i, l)) {
+        // Si la subcadena común más larga es igual a la subcadena de s1
+        if (lcs == s1.substr(i, l)) {
 
-                // Agregar a positions el par (i, i+l)
-                positions.push_back(std::make_pair(i, i+l));
-            }
+            // Agregar a positions el par (i, i+l)
+            positions.push_back(std::make_pair(i, i+l));
         }
     }
 
