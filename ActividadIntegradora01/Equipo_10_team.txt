@@ -6,4 +6,5 @@ Maarten Roelof van 't Hoff - A01764070
 Ian Julian Estrada Castro - 
 
 
-Diego García - 
+Diego García - A01710777
+- Archivos de código: longestCommonSubstring.h, main.cpp (implementación del algoritmo LCS)
