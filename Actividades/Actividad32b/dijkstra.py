@@ -15,7 +15,7 @@ def initGraph(adjacency):
     for i in range(nodes):
         graph[i] = {}
         for j in range(nodes):
-            if adjacency[i][j] != -1 and adjacency[i][j] != 0:
+            if adjacency[i][j] != -1 and (i != j or adjacency[i][j] != 0):
                 graph[i][j] = adjacency[i][j]
 
     return graph
