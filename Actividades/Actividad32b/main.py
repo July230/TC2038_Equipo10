@@ -16,7 +16,7 @@ graph = [
 print("\n----- DIJKSTRA -----\n")
 
 # Inicializar grafo como diccionario para Dijkstra
-graph_dijkstra = initGraph(graph)
+graph_dijkstra = initGraph(graph, n)
 
 # Llamar al algoritmo de Dijkstra
 for node in graph_dijkstra:
