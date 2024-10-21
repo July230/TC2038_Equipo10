@@ -45,21 +45,23 @@ def floydWarshall(n, graph):
     
     return distance
 
-# Leer la entrada
-n = int(input("numero :"))
-graph = [
-    [0, 2, -1, 3,],
-    [-1, 0, 1, 5],
-    [2, 3, 0, -1],
-    [3, -1, 4, 0],
-]
-"""
-for _ in range(n):
-    graph.append(list(map(int, input().split())))
-"""
+if __name__ == "__main__":
 
-# Llamar al algoritmo
-result = floydWarshall(n, graph)
+    # Leer la entrada
+    n = int(input("numero :"))
+    graph = [
+        [0, 2, -1, 3,],
+        [-1, 0, 1, 5],
+        [2, 3, 0, -1],
+        [3, -1, 4, 0],
+    ]
+    """
+    for _ in range(n):
+        graph.append(list(map(int, input().split())))
+    """
 
-for row in result:
-    print(" ".join(map(str, row)))
+    # Llamar al algoritmo
+    result = floydWarshall(n, graph)
+
+    for row in result:
+        print(" ".join(map(str, row)))

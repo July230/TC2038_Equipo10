@@ -41,23 +41,22 @@ def dijkstra(graph, source):
 
     return distances
 
+if __name__ == "__main__":
+    # Matriz de adyacencia
+    graph = [
+        [0, 2, -1, 3,],
+        [-1, 0, 1, 5],
+        [2, 3, 0, -1],
+        [3, -1, 4, 0],
+    ]
 
-n = int(input("numero : "))
-print("Starting")
-matrix = [
-    [0, 2, -1, 3,],
-    [-1, 0, 1, 5],
-    [2, 3, 0, -1],
-    [3, -1, 4, 0],
-]
+    # Inicializar grafo
+    graph = initGraph(graph)
 
-graph = initGraph(matrix)
-
-for node in graph:
-    print(f"Node {node}: {graph[node]}")
-
-for node in graph:
-    distanceList = dijkstra(graph, node)
-    for dest, dist in distanceList.items():
-        if dest != node:
-            print(f"node {node} to node {dest}: {dist}")
+    # Llamar al algoritmo de Dijkstra
+    for node in graph:
+        print(f"Node {node}: {graph[node]}")
+        distanceList = dijkstra(graph, node)
+        for dest, dist in distanceList.items():
+            if dest != node:
+                print(f"node {node} to node {dest}: {dist}")
