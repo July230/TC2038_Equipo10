@@ -2,7 +2,7 @@
 Maarten Roelof van 't Hoff - A01764070
 Algoritmo de Dijkstra - Actividad 32b
 Este programa ejecuta el algoritmo de Dijkstra a mano de una matriz de adyacencia.
-
+Complejidad O(E log V), donde E es el número de aristas y V el número de vértices en el grafo.
 Toma una lista/matriz de adyacencia con los pesos entre nodos
 La matriz se convierte a un diccionario para facilitar en el proceso de Dijkstra
 Nodos con -1 en la matriz no se agregan al diccionario por no tener arco
