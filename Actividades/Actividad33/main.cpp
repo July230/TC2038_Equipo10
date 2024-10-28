@@ -21,8 +21,8 @@ int main(){
     // TEST 2
 
     int n_2 = 6;
-    vector<int> valores_2 = {1, 2, 4, 5, 7, 8};
-    vector<int> pesos_2 = {2, 5, 6, 10, 13, 16};
+    vector<int> valores_2 = {2, 5, 6, 10, 13, 16};
+    vector<int> pesos_2 = {1, 2, 4, 5, 7, 8};
     int w_2 = 8;
 
     cout << "TEST 2: " << endl;
