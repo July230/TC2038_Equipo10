@@ -19,7 +19,7 @@ Autores:
 using namespace std;
 
 /**
- * @brief Esta función recibe un grafo y regresa un vector con los colores asignados a cada nodo
+ * @brief Esta función recibe un grafo y regresa un vector con los colores asignados a cada nodo. Complejidad O(n^2)
  * 
  * @param graph Grafo en forma de lista de adyacencia
  * 
