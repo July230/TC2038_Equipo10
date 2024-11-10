@@ -1,6 +1,7 @@
 from readFile import readFile
+from MinSpanTree import *
 
-filename = "./inputs/E5_Entrada_1.txt"
+filename = "./inputs/E5_Entrada_2.txt"
 N, weight, flow, coords = readFile(filename)
 
 print("N:", N)
@@ -16,3 +17,8 @@ for node in flow:
 print("Coords:")
 for coord in coords:
     print(coord)
+
+mst = prim(weight, start = 0)
+print("Construcción óptima con pesos:")
+for u, v, weight in mst:
+    print(f"({u}, {v}): {weight}")
