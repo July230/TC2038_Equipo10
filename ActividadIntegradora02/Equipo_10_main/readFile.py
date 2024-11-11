@@ -1,3 +1,12 @@
+"""
+Este programa lee los archivos de texto para la actividad integradora y cambia los matrizes de adyacencia a
+diccionarios representando los grafos.
+
+Autores:
+  - Maarten Roelof van 't Hoff A01764070
+*/
+"""
+
 def readFile(filename):
     with open(filename, "r") as file:
         N = int(file.readline().strip())

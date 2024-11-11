@@ -26,7 +26,7 @@ for coord in coords:
     print(coord)
 
 mst = prim(weights, start = 0)
-print("Construcción óptima con pesos:")
+print("-------------------------- MST con Prim -------------------------")
 for u, v, weight in mst:
     print(f"({u}, {v}): {weight}")
 
@@ -44,6 +44,30 @@ print("------------------------ Ford-Fulkerson ------------------------")
 print("Flujo máximo: ", maxFlow)
 
 print("------------------------ Caso 2 ------------------------")
+print("N:", N1)
+
+print("Weights:")
+for node in weights1:
+    print(f"Node {node}: {weights1[node]}")
+
+print("Flow:")
+for node in flow1:
+    print(f"Node {node}: {flow1[node]}")
+
+print("Coords:")
+for coord in coords1:
+    print(coord)
+
+mst = prim(weights1, start = 0)
+print("-------------------------- MST con Prim -------------------------")
+for u, v, weight in mst:
+    print(f"({u}, {v}): {weight}")
+
+print("------------------------ Dijkstra Greedy ------------------------")
+route, totalDistance = dijkstraGreedy(N1, weights1)
+routeLetters = [chr(ord('A') + i) for i in route]
+print("Ruta:", ' -> '.join(routeLetters))
+print("Distancia total: ", totalDistance)
 
 # Algoritmo de Ford-Fulkerson caso 2
 initialPathNode = 0
@@ -53,6 +77,30 @@ print("------------------------ Ford-Fulkerson ------------------------")
 print("Flujo máximo: ", maxFlow1)
 
 print("------------------------ Caso 3 ------------------------")
+print("N:", N2)
+
+print("Weights:")
+for node in weights2:
+    print(f"Node {node}: {weights2[node]}")
+
+print("Flow:")
+for node in flow2:
+    print(f"Node {node}: {flow2[node]}")
+
+print("Coords:")
+for coord in coords2:
+    print(coord)
+
+mst = prim(weights2, start = 0)
+print("-------------------------- MST con Prim -------------------------")
+for u, v, weight in mst:
+    print(f"({u}, {v}): {weight}")
+
+print("------------------------ Dijkstra Greedy ------------------------")
+route, totalDistance = dijkstraGreedy(N2, weights2)
+routeLetters = [chr(ord('A') + i) for i in route]
+print("Ruta:", ' -> '.join(routeLetters))
+print("Distancia total: ", totalDistance)
 
 # Algoritmo de Ford-Fulkerson caso 3
 initialPathNode = 0
