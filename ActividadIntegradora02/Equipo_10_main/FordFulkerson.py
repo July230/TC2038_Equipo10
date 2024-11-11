@@ -14,7 +14,7 @@ Autores:
 
 """
  * dfs
- * @brief Funcion residual para realizar DFS y encontrar un camino que aumenta. Complejidad O(fE)
+ * @brief Funcion residual para realizar DFS y encontrar un camino que aumenta.
  * f es el flujo maximo y E es el numero de aristas (uniones) en una red 
  * 
  * @param residualGraph grafo con capacidad residual en forma de lista de adyacencia representada como diccionario
@@ -23,7 +23,7 @@ Autores:
  * @param path diccionario para guardar los pasos del camino desde el inicio al final, se reconstruye el camino encontrado
  * @param visited diccionario que guarda nodos visitados en el camino
  * 
- * @return Vector con los colores asignados a cada nodo
+ * @return Bool
 """
 def dfs(residualGraph, initialPathNode, finalPathNode, path, visited):
     visited[initialPathNode] = True
@@ -41,6 +41,17 @@ def dfs(residualGraph, initialPathNode, finalPathNode, path, visited):
     # Caso base: No se encontro un camino que aumenta al final del ciclo
     return False
 
+"""
+ * dfs
+ * @brief Funcion residual para realizar DFS y encontrar un camino que aumenta. Complejidad O(fE)
+ * f es el flujo maximo y E es el numero de aristas (uniones) en una red 
+ * 
+ * @param graph grafo en forma de lista de adyacencia representada como diccionario
+ * @param initialNode el nodo inicial del flujo
+ * @param finalNode el nodo final del flujo
+ * 
+ * @return Integer con el valor del flujo maximo
+"""
 def fordFulkerson(graph, initialPathNode, finalPathNode):
     # Crear el grafo residual a partir del original
     residualGraph = {node: {} for node in graph}
@@ -65,14 +76,6 @@ def fordFulkerson(graph, initialPathNode, finalPathNode):
             pathFlow = min(pathFlow, residualGraph[path[s]][s])
             s = path[s]
 
-        # Verifica que flujo_camino no sea infinito
-        if pathFlow == float('Inf'):
-            print("Error: flujo_camino es infinito, no se encontró un camino válido.")
-            break
-        
-        # Imprime la capacidad del camino
-        print(f"Capacidad mínima en el camino actual: {pathFlow}")
-
         # Actualiza capacidades residuales en el camino
         v = finalPathNode
         while v != initialPathNode:
@@ -84,18 +87,3 @@ def fordFulkerson(graph, initialPathNode, finalPathNode):
         maxFlow += pathFlow # Agregar el flujo del camino al flujo total
 
     return maxFlow
-
-graph = {
-    0: {1: 16, 2: 13},
-    1: {2: 10, 3: 12},
-    2: {1: 4, 4: 14},
-    3: {2: 9, 5: 20},
-    4: {3: 7, 5: 4},
-    5: {}
-}
-
-fuente = 0  # Nodo inicial
-sumidero = 5  # Nodo final
-
-maxFlow = fordFulkerson(graph, fuente, sumidero)
-print("El flujo máximo es: ", maxFlow)
