@@ -1,20 +1,21 @@
 from readFile import readFile
 from MinSpanTree import *
 from FordFulkerson import *
+from DijkstraGreedy import *
 
 filename = "./inputs/E5_Entrada_1.txt"
 filename1 = "./inputs/E5_Entrada_2.txt"
 filename2 = "./inputs/E5_Entrada_3.txt"
-N, weight, flow, coords = readFile(filename)
-N1, weight1, flow1, coords1 = readFile(filename1)
-N2, weight2, flow2, coords2 = readFile(filename2)
+N, weights, flow, coords = readFile(filename)
+N1, weights1, flow1, coords1 = readFile(filename1)
+N2, weights2, flow2, coords2 = readFile(filename2)
 
 print("------------------------ Caso 1 ------------------------")
 print("N:", N)
 
-print("Weight:")
-for node in weight:
-    print(f"Node {node}: {weight[node]}")
+print("Weights:")
+for node in weights:
+    print(f"Node {node}: {weights[node]}")
 
 print("Flow:")
 for node in flow:
@@ -24,10 +25,16 @@ print("Coords:")
 for coord in coords:
     print(coord)
 
-mst = prim(weight, start = 0)
+mst = prim(weights, start = 0)
 print("Construcción óptima con pesos:")
 for u, v, weight in mst:
     print(f"({u}, {v}): {weight}")
+
+print("------------------------ Dijkstra Greedy ------------------------")
+route, totalDistance = dijkstraGreedy(N, weights)
+routeLetters = [chr(ord('A') + i) for i in route]
+print("Ruta:", ' -> '.join(routeLetters))
+print("Distancia total: ", totalDistance)
 
 # Algoritmo de Ford-Fulkerson caso 1
 initialPathNode = 0
