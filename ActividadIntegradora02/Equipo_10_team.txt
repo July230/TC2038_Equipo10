@@ -1,11 +1,11 @@
 ACTIVIDAD INTEGRADORA 2: Alta demanda para los Proveedores de Servicios de Internet (ISP) 
 
 Maarten Roelof van 't Hoff - A01764070
-- Archivos de codigo: 
+- Archivos de codigo: MinSpanTree.py, main.py, investigacion24.md, readfile.py (implementación del algoritmo Prim)
 
 Ian Julian Estrada Castro - A01352823
-- Archivos de codigo:
+- Archivos de codigo: FordFulkerson.py, DijkstraGreedy.py (implementación del algoritmo Ford-Fulkerson y dijkstra)
 
 
 Diego García - A01710777
-- Archivos de código: (implementación del algoritmo de dijkstra)
+- Archivos de código:
